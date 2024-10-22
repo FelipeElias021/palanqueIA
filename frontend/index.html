@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>palanqueIA</title>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Navbar lateral esquerda -->
+    <nav class="navbar">
+      <!-- <img class="palanque-logo" src="static/images/logo-transparent.png" alt="O Palanque"> -->
+      <div class="chat-mode tooltip">
+        <i class="uil uil-comment-search icon-space"></i>
+        Modo de Pesquisa
+        <span class="tooltiptext">PRECISA: Busca diretamente candidatos e propostas no contexto específico da pesquisa. <br><br>
+          CRIATIVA: Permite a IA inove propostas com base na pesquisa informada.
+        </span>
+      </div>
+
+      <div class="button-container">
+        <button id="preciso" class="btn preciso clicked">Precisa</button>
+        <button id="criativo" class="glow-on-hover">Criativa</button>
+        
+      </div>
+
+      <div class="divisor"><hr></div>
+
+      <div class="new-chat">
+        <button class="addbtn" onclick="openNewTab()">
+          <i class="uil uil-comment-add icon-space"></i>Novo Chat
+        </button>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">
+          <i class="uil uil-create-dashboard icon-space"></i>Exemplos Práticos
+        </button>
+        <div class="dropdown-content">
+          <a href="#" onclick="addTextToChat(this.textContent)">Propostas sobre academias ao ar livre.</a>
+          <a href="#" onclick="addTextToChat(this.textContent)">Plano de governo envolvendo incentivo à saúde.</a>
+          <a href="#" onclick="addTextToChat(this.textContent)">Planejamento estratégico do recurso público.</a>
+        </div>
+      </div>
+
+      <div class="infos">
+        <hr><br>
+        <center><h2>Sobre o projeto:</h2></center>
+        <ul>
+          <li>
+            O palanque é o seu assessor pessoal para projetos políticos! <br>
+            <strong>O primeiro do mundo!</strong></li>
+          <li>
+            Busque planos de governo através do chat! 
+            Um banco de ideias especializado em propostas políticas. </li>
+          <li>
+            Defina seu estilo de pesquisa, se deseja que o chat
+            seja mais <strong>criativo</strong>, ou mais <strong>preciso</strong> 
+            ao buscar Informações.</li>
+          
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Área do chat -->
+    <section class="chat-section">
+      <div class="chat-header">
+        <h2 class="palanq">palanque</h2><h2 class="ia">IA</h2>
+      </div>
+      <div class='chat-container' id="chatboarder">
+        <div id='chat-box' class="chat-box">
+
+        </div>
+
+        <div class="chat-input">
+          <input type="text" name="chat" id="user-input" placeholder="Digite sua mensagem...">
+          <button onclick="sendMessage()">
+            <img id="myImage" src="static/images/send.png" alt="Enviar">
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <script src="static/script.js"></script>
+</body>
+</html>
+

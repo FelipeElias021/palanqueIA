@@ -1,0 +1,625 @@
+:root {
+  --border-width: 3px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #c2dae2;
+  background-image: linear-gradient(#47b1bf, #1a5271);
+  height: 100vh;
+  display: flex;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+h2 {
+  font-size: xx-large;
+}
+
+.icon-space {
+  margin-right: 10px;
+}
+
+.chat-mode {
+  display: inline-flex;
+  align-content: flex-start;
+  width: 95%;
+  cursor: help;
+  margin-top: 8vh;
+}
+
+
+/* Navbar lateral esquerda */
+.navbar {
+  width: 18%;
+  color: white;
+  padding: 15px 15px 15px 15px;
+  overflow-y: auto;
+  overflow-x: hidden; /* Impede a barra de rolagem horizontal */
+  display: flex; /* Ativa o flexbox */
+  flex-direction: column; /* Organiza os itens em coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  justify-content: space-between;
+}
+
+.palanque-logo {
+  height: 19vh;
+  width: auto;
+}
+
+.navbar h2 {
+  margin-bottom: 15px;
+  font-size: large;
+}
+
+.navbar ul {
+  list-style-type: none;
+}
+
+.navbar li {
+  margin-bottom: 15px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.infos {
+  align-content: flex-end;
+  flex-grow: 1; /* Permite que este contêiner expanda para ocupar o espaço restante */
+}
+
+.names {
+  position: relative; /* Para a linha vertical */
+}
+
+.name-item {
+  text-align: left;
+  font-size: 10px;
+  display: flex; /* Usar flexbox */
+  justify-content: space-between; /* Espaço entre os itens */
+  width: 100%; /* Para ocupar toda a largura disponível */
+  padding: 1px 10px; /* Espaçamento vertical entre os itens */
+}
+
+.name-item span {
+  white-space: nowrap; /* Impede a quebra de linha nos textos */
+}
+
+.vertical-line {
+  position: absolute; /* Posicionamento absoluto para a linha */
+  left: 0; /* Alinhado à esquerda */
+  top: 0; /* Começa no topo da seção */
+  bottom: 0; /* Extende até o fundo */
+  width: 1px; /* Largura da linha */
+  background-color: #ffffff; /* Cor da linha */
+}
+
+.divisor {
+  width: 100%;
+}
+
+
+
+
+
+
+
+.button-container {
+  display: flex; /* Organiza os botões em linha */
+  gap: 10px; /* Espaço entre os botões */
+  padding: 20px;
+  overflow: hidden; /* Impede a barra de rolagem se os botões excederem a largura */
+}
+
+.btn {
+  padding: 10px 20px; /* Espaçamento interno */
+  border-radius: 10px; /* Bordas arredondadas */
+  border: none;
+  background-color: #007bff00; /* Cor de fundo do botão */
+  color: white; /* Cor do texto */
+  font-size: 15px; /* Tamanho da fonte */
+  cursor: pointer; /* Cursor de mão ao passar o mouse */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
+}
+
+.criativo {
+  color: #ffffff;
+  background: rgb(53, 53, 53);
+}
+
+
+.clicked {
+  padding: 10px 20px; /* Espaçamento interno */
+  border-radius: 10px; /* Bordas arredondadas */
+  border: none;
+  cursor: default;
+  font-size: 15px; /* Tamanho da fonte */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
+  background-color: #ff9900; /* Nova cor de fundo ao clicar */
+  background: #ff9900; /* Nova cor de fundo ao clicar */
+  transform: scale(0.9); /* Leve aumento de tamanho ao clicar */
+  color: #000000; /* Cor do texto */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra interna */
+}
+
+.btn.clicked:hover {
+  background-color: #ff9900; /* Nova cor de fundo ao clicar */
+  background: #ff9900; /* Nova cor de fundo ao clicar */
+  transform: scale(0.9); /* Leve aumento de tamanho ao clicar */
+  color: #000000; /* Cor do texto */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra interna */
+}
+
+.btn:hover {
+  background-color: #000000; /* Cor de fundo ao passar o mouse */
+  transform: translateY(-2px); /* Efeito de "elevar" o botão ao passar o mouse */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra interna */
+}
+
+.btn:active {
+  transform: translateY(1px); /* Efeito de "afundar" o botão ao clicar */
+}
+
+.glow-on-hover {
+  padding: 10px 20px; /* Espaçamento interno */
+  border-radius: 10px; /* Bordas arredondadas */
+  font-size: 15px; /* Tamanho da fonte */
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #ffffff00;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000000
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #00000000;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+
+
+
+
+/* Dropdown menu */
+.dropbtn {
+  background-color: #1b517100;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 15px;
+  width: 100%;
+  height: auto;
+  text-align: justify;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  align-content: center;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 100%;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  font-size: xx-small;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #0e3c576e;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  text-decoration: underline;
+  font-size: 15px;
+}
+
+.dropdown:hover .icon-space {
+  font-size: 17px;
+}
+
+
+
+.new-chat{
+  width: 100%;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+
+.addbtn {
+  background-color: #1b517100;
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 15px;
+  width: 100%;
+  height: auto;
+  text-align: justify;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+}
+
+.addbtn:hover {
+  background-color: #0e3c5773;
+  text-decoration: underline;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  font-size: 15px;
+}
+
+.addbtn:hover .icon-space {
+  font-size: 17px;
+}
+
+
+
+
+/* Área do chat */
+.chat-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  display: inline-flex;
+  padding: 20px;
+  text-align: center;
+  align-items: center; /* Alinha verticalmente ao centro */
+  justify-content: center; /* Alinha horizontalmente ao centro */
+}
+
+.palanq {
+  font-family: "Shrikhand", serif;
+  color: #000000;
+  font-weight: 100;
+}
+
+.ia {
+  font-family: "Shrikhand", serif;
+  color: #ff9900;
+}
+
+.chat-container {
+  margin-bottom: 15px;
+  height: 89%;
+  width: 99%;
+  background-image: url(images/bg.png);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0px 8px 8px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+.chat-box {
+  flex: 1;
+  padding: 0px 0 10px 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+  margin-right: 8px;
+}
+
+.message-container {
+  display: flex;
+  align-items: flex-end;
+}
+
+.user-message-container {
+  justify-content: flex-end;
+  margin-top: 0px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+.bot-message-container {
+  justify-content: flex-start;
+  margin-top: 0px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.message {
+  max-width: 70%;
+  padding: 8px;
+  border-radius: 10px;
+  word-wrap: break-word;
+  z-index: 10;
+}
+
+.bot-message {
+  background-color: #e4e4e4;
+  color: #000000;
+  height: 100%;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  position: relative;
+  z-index: 11;
+}
+
+.bot-message::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #ff9900; /* Faixa verde */
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.user-message {
+  background-color: #616161;
+  color: white;
+  border-bottom-right-radius: 0;
+  white-space: pre-line;
+}
+
+.profile-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.input-container {
+  display: flex;
+  padding: 8px;
+  /* border-top: 1px solid #ddd; */
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font: arial, sans-serif;
+}
+
+input:focus {
+  outline: none; /* Remove o contorno padrão */
+}
+
+.chat-input {
+  display: flex;
+  padding: 10px 30px 10px 30px;
+  background-color: #fff;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  /* border-top: 1px solid #ccc; */
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 15px 80px 15px 15px; /* Adicionando espaço para o botão dentro do input */
+  border: 2px solid #ffb15c;
+  border-radius: 25px;
+  font-size: 16px;
+}
+
+.chat-input button {
+  position: absolute;
+  padding: 0;
+  background-color: #ffffff;
+  right: 49px;
+  top: 53%;
+  transform: translateY(-50%);
+  color: white;
+  border: #ff9900;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.chat-input button img {
+  width: 25px;
+  height: 25px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.chat-input button img:hover {
+  transform: scale(1.3);
+}
+
+.move {
+  transform: translate(50px, -50px); /* Ajuste a distância conforme necessário */
+  opacity: 0; /* Faz a imagem desaparecer */
+}
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  font-size: x-small;
+  visibility: hidden;
+  width: 100%;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 0%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  padding: 10px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 10%;
+  margin-left: -5px;
+  margin-bottom: 5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+
+.sec-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sec-loading .one {
+  height: 20px;
+  width: 20px;
+  border: none;
+  transform: rotate(45deg);
+  border-radius: 50% 50% 50% 50%;
+  position: relative;
+  animation: move 0.5s linear infinite alternate-reverse;
+}
+
+.sec-loading .one::before {
+  content: "";
+  position: absolute;
+  height: 55%;
+  width: 55%;
+  border-radius: 50%;
+  border: var(--border-width) solid transparent;
+  border-top-color: #378ea3;
+  border-bottom-color: #378ea3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes move {
+  to {
+    transform: translateY(3px) rotate(45deg);
+  }
+}
+
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #45acbb; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #327d87; 
+  transform: scale(1.05);
+}
