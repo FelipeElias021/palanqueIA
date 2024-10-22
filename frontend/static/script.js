@@ -62,7 +62,7 @@ function loading() {
     const loadingMessage = document.createElement('div');
     loadingMessage.classList.add('message-container', 'bot-message-container', 'load');
     loadingMessage.innerHTML = `
-        <img src="static/images/logo.png" class="profile-image">
+        <img src="/static/images/logo.png" class="profile-image">
         <div class="message bot-message">
           <div class="sec-loading">
             <div class="one"></div>
@@ -132,10 +132,10 @@ function sendMessage() {
     // Define a classe do contêiner e da imagem de perfil com base no remetente
     if (sender === "user") {
         messageContainer.className = "message-container user-message-container";
-        profileImage.src = "static/images/profile.png"; // Caminho para a imagem de perfil do usuário
+        profileImage.src = "/static/images/profile.png"; // Caminho para a imagem de perfil do usuário
     } else {
         messageContainer.className = "message-container bot-message-container";
-        profileImage.src = "static/images/logo.png"; // Caminho para a imagem de perfil do bot
+        profileImage.src = "/static/images/logo.png"; // Caminho para a imagem de perfil do bot
     }
   
     profileImage.className = "profile-image";
